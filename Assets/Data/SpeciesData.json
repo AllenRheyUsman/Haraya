@@ -18,6 +18,7 @@
           "move": {
             "moveName": "Scratch",
             "type": "Normal",
+            "category": "Physical",
             "power": 40,
             "accuracy": 100,
             "maxPP": 35,
@@ -27,10 +28,25 @@
           }
         },
         {
+          "level": 3,
+          "move": {
+            "moveName": "Poison Sting",
+            "type": "Poison",
+            "category": "Physical",
+            "power": 15,
+            "accuracy": 100,
+            "maxPP": 35,
+            "currentPP": 35,
+            "statusEffect": "Poison",
+            "statusChance": 0.3
+          }
+        },
+        {
           "level": 5,
           "move": {
             "moveName": "Bite",
             "type": "Dark",
+            "category": "Physical",
             "power": 60,
             "accuracy": 100,
             "maxPP": 25,
@@ -61,6 +77,7 @@
           "move": {
             "moveName": "Slash",
             "type": "Normal",
+            "category": "Physical",
             "power": 70,
             "accuracy": 100,
             "maxPP": 20,

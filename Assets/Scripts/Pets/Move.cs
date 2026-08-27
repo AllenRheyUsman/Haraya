@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
 
+public enum MoveCategory { Physical, Special }
+
 [Serializable]
 public class Move
 {
     public string moveName;
     public ElementType type;
+    public MoveCategory category = MoveCategory.Physical;
     public int power;
     public int accuracy;
     public int maxPP;

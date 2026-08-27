@@ -85,20 +85,17 @@ public static class TestSceneBuilder
         var careManagerGO = new GameObject("CareManager");
         careManagerGO.AddComponent<CareManager>();
 
-        var bootstrapGO = new GameObject("TestBootstrap");
-        var bootstrap = bootstrapGO.AddComponent<TestBootstrap>();
-
         var speciesAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(SpeciesDataPath);
         if (speciesAsset == null)
         {
             Debug.LogError($"TestSceneBuilder: could not load {SpeciesDataPath}");
         }
-        else
-        {
-            var so = new SerializedObject(bootstrap);
-            so.FindProperty("speciesData").objectReferenceValue = speciesAsset;
-            so.ApplyModifiedProperties();
-        }
+
+        var bootstrapGO = new GameObject("TestBootstrap");
+        AssignSpeciesData(bootstrapGO.AddComponent<TestBootstrap>(), speciesAsset);
+
+        var battleHarnessGO = new GameObject("BattleTestHarness");
+        AssignSpeciesData(battleHarnessGO.AddComponent<BattleTestHarness>(), speciesAsset);
 
         EnsureFolder("Assets/Scenes");
         EditorSceneManager.SaveScene(scene, ScenePath);
@@ -106,6 +103,18 @@ public static class TestSceneBuilder
 
         Debug.Log($"TestSceneBuilder: built and saved {ScenePath} " +
                   $"(environment: {hasEnvironment}, cat: {catInstance != null}, combined bounds: {combinedBounds.size})");
+    }
+
+    private static void AssignSpeciesData(MonoBehaviour component, TextAsset speciesAsset)
+    {
+        if (speciesAsset == null)
+        {
+            return;
+        }
+
+        var so = new SerializedObject(component);
+        so.FindProperty("speciesData").objectReferenceValue = speciesAsset;
+        so.ApplyModifiedProperties();
     }
 
     private static GameObject InstantiateModel(string assetPath, string instanceName)

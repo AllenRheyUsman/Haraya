@@ -12,9 +12,9 @@ public static class DamageCalculator
             return 0;
         }
 
-        // TODO: split physical vs. special per move instead of always using Attack/Defense.
-        int attack = attacker.GetStat(StatType.Attack);
-        int defense = defender.GetStat(StatType.Defense);
+        bool physical = move.category == MoveCategory.Physical;
+        int attack = attacker.GetStat(physical ? StatType.Attack : StatType.SpAttack);
+        int defense = defender.GetStat(physical ? StatType.Defense : StatType.SpDefense);
 
         float stab = move.type == attacker.species.primaryType || move.type == attacker.species.secondaryType ? 1.5f : 1f;
         float typeEffectiveness = TypeChart.GetEffectiveness(move.type, defender.species.primaryType, defender.species.secondaryType);
