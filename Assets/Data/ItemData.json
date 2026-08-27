@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "itemId": "potion",
+      "itemName": "Potion",
+      "description": "Restores 20 HP to a pet.",
+      "category": "Consumable",
+      "maxStack": 99
+    },
+    {
+      "itemId": "antidote",
+      "itemName": "Antidote",
+      "description": "Cures poison.",
+      "category": "Consumable",
+      "maxStack": 99
+    }
+  ]
+}

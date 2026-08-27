@@ -1,0 +1,34 @@
+{
+  "species": [
+    {
+      "speciesId": "cat",
+      "speciesName": "Cat",
+      "modelPath": "Models/Creatures/cat",
+      "primaryType": "Normal",
+      "secondaryType": "None",
+      "baseHP": 45,
+      "baseAttack": 40,
+      "baseDefense": 40,
+      "baseSpAttack": 35,
+      "baseSpDefense": 35,
+      "baseSpeed": 55,
+      "movepool": [
+        {
+          "level": 1,
+          "move": {
+            "moveName": "Scratch",
+            "type": "Normal",
+            "power": 40,
+            "accuracy": 100,
+            "maxPP": 35,
+            "currentPP": 35,
+            "statusEffect": "None",
+            "statusChance": 0
+          }
+        }
+      ],
+      "evolvesIntoId": "",
+      "evolutionLevel": 0
+    }
+  ]
+}
