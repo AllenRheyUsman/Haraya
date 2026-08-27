@@ -25,6 +25,49 @@
             "statusEffect": "None",
             "statusChance": 0
           }
+        },
+        {
+          "level": 5,
+          "move": {
+            "moveName": "Bite",
+            "type": "Dark",
+            "power": 60,
+            "accuracy": 100,
+            "maxPP": 25,
+            "currentPP": 25,
+            "statusEffect": "None",
+            "statusChance": 0
+          }
+        }
+      ],
+      "evolvesIntoId": "cat_evolved",
+      "evolutionLevel": 8
+    },
+    {
+      "speciesId": "cat_evolved",
+      "speciesName": "Tomcat",
+      "modelPath": "Models/Creatures/cat2",
+      "primaryType": "Normal",
+      "secondaryType": "None",
+      "baseHP": 65,
+      "baseAttack": 60,
+      "baseDefense": 55,
+      "baseSpAttack": 50,
+      "baseSpDefense": 50,
+      "baseSpeed": 70,
+      "movepool": [
+        {
+          "level": 8,
+          "move": {
+            "moveName": "Slash",
+            "type": "Normal",
+            "power": 70,
+            "accuracy": 100,
+            "maxPP": 20,
+            "currentPP": 20,
+            "statusEffect": "None",
+            "statusChance": 0
+          }
         }
       ],
       "evolvesIntoId": "",
