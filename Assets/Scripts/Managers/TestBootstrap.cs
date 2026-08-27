@@ -35,12 +35,22 @@ public class TestBootstrap : MonoBehaviour
             pet.evs[stat] = 0;
         }
         pet.currentHP = pet.GetStat(StatType.HP);
+        pet.InitializeStartingMoves();
 
         Debug.Log($"[TestBootstrap] Loaded {allSpecies.Count} species from JSON.");
         Debug.Log($"[TestBootstrap] Spawned '{pet.nickname}' ({catSpecies.speciesName}), Lv.{pet.level}");
         Debug.Log($"[TestBootstrap] HP:{pet.GetStat(StatType.HP)} Atk:{pet.GetStat(StatType.Attack)} " +
                   $"Def:{pet.GetStat(StatType.Defense)} SpA:{pet.GetStat(StatType.SpAttack)} " +
                   $"SpD:{pet.GetStat(StatType.SpDefense)} Spe:{pet.GetStat(StatType.Speed)}");
+        Debug.Log($"[TestBootstrap] Known moves: {string.Join(", ", pet.knownMoves.ConvertAll(m => m.moveName))}");
+
+        // Exercise the level curve, move-learning, and evolution in one grant so the whole
+        // Pet & Stats pipeline gets verified before this phase is committed.
+        pet.GainExperience(600);
+
+        Debug.Log($"[TestBootstrap] After +600 XP: Lv.{pet.level}, species '{pet.species.speciesName}', " +
+                  $"HP {pet.currentHP}/{pet.GetStat(StatType.HP)}");
+        Debug.Log($"[TestBootstrap] Known moves: {string.Join(", ", pet.knownMoves.ConvertAll(m => m.moveName))}");
 
         if (CareManager.Instance != null)
         {
